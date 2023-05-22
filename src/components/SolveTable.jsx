@@ -10,8 +10,8 @@ export default ({ title, headers, answers }) => {
 
 
 	const [textmap, settextmap] = useState(
-		range(answers.length)
-			.flatMap(y => range(answers[0].length).map(x => `row:${x},${y}`))
+		range(answers[0].length)
+			.flatMap(y => range(answers.length).map(x => `row:${x},${y}`))
 			.reduce((acc, cur) => {
 				acc[cur] = '';
 				return acc;
@@ -36,8 +36,8 @@ export default ({ title, headers, answers }) => {
 					</tr>
 				</thead>
 				<tbody>
-					{ range(answers.length).map(y => 
-						<tr key={y}>{ range(answers[0].length).map(x =>
+					{ range(answers[0].length).map(y => 
+						<tr key={y}>{ range(answers.length).map(x =>
 							(x === 0
 								? <th key={`row:${x},${y}`} scope="row">{answers[x][y]}</th>
 								: <td key={`row:${x},${y}`}>
